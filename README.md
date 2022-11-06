@@ -1,7 +1,5 @@
 ## Tarea Análisis de Algoritmos
 
-***
-
 Integrantes:
 
 *   Lucas Corco
@@ -13,8 +11,6 @@ Integrantes:
 *   Johann Villarroel
 
 ## Como Usar
-
-***
 
 Generar nuevo txt con 10M datos
 
