@@ -1,15 +1,29 @@
+## Tarea Análisis de Algoritmos
 
-#Tarea Analisis de Algoritmos <H2/>
+***
 
+Integrantes:
 
-Lucas Corco
-Gustavo Oyarce
-Tomas Lillo
-Johann Villarroel
+*   Lucas Corco
 
+*   Gustavo Oyarce
 
-#PARA COMPILAR 
+*   Tomás Lilo
 
-gcc generador.c -o generador.o
+*   Johann Villarroel
 
-./generador.o
+## Como Usar
+
+***
+
+Generar nuevo txt con 10M datos
+
+    $ make generar
+
+Ejecutar algoritmos para los 10M datos
+
+    $ make
+
+Testear algoritmo solo con 10K datos
+
+    $ make test
