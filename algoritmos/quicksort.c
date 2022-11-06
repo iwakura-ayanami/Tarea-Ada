@@ -1,7 +1,8 @@
 #include "quicksort.h"
 
+#define SWAP(x, y) { int SWAP = x; x = y; y = SWAP; };
+
 void quicksort(int *array, int n) {
-    int temp;
     int i, j;
     int pivot = array[n / 2];
 
@@ -13,9 +14,7 @@ void quicksort(int *array, int n) {
 
         if (i >= j) break;
 
-        temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+        SWAP(array[i], array[j])
     }
 
     quicksort(array, i);

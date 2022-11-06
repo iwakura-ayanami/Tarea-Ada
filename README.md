@@ -12,14 +12,18 @@ Integrantes:
 
 ## Como Usar
 
-Generar nuevo txt con 10M datos
+Generar archivo `data.txt` con 10M datos aleatorios
 
     $ make generar
 
-Ejecutar algoritmos para los 10M datos
+Ejecutar algoritmos para 10M datos
 
     $ make
 
-Testear algoritmo solo con 10K datos
+Ejecutar algoritmos para 10M datos y exportar `logs.txt`
+
+    $ make exportar
+
+Testear algoritmos solo con 10K datos
 
     $ make test

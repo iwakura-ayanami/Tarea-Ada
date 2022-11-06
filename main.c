@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
     /* Burbuja */ /* Muere en array[43687] */
     /* tiempo = clock();
     burbuja(array2, n);
-    tiempo_ejec = ((double)(clock() - tiempo)) / CLOCKS_PER_SEC;
+    tiempo_ejec[0] = ((double)(clock() - tiempo)) / CLOCKS_PER_SEC;
     printf("Burbuja: \t %f segundos \n", tiempo_ejec); */
     
     /* Shell */
@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
     /* Quicksort */
     tiempo = clock();
     quicksort(array2, n);
-    tiempo_ejec = ((double)(clock() - tiempo)) / CLOCKS_PER_SEC;
+    tiempo_ejec= ((double)(clock() - tiempo)) / CLOCKS_PER_SEC;
     printf("Quicksort: \t %f segundos \n", tiempo_ejec);
 
     /* Print array ordenado (para testear) */
@@ -60,6 +60,8 @@ int main(int argc, char *argv[]) {
     } */
 
     printf("\n");
+
+
     free(array);
 	fclose(stream);
 	exit(EXIT_SUCCESS);
