@@ -1,29 +1,47 @@
 ## Tarea Análisis de Algoritmos
 
-Integrantes:
+Implementación de algoritmos de ordenamiento en ANSI C
 
-*   Lucas Corco
+**Algoritmos**:
 
-*   Gustavo Oyarce
+*   Burbuja Recursivo
 
-*   Tomás Lilo
+*   Shellsort Recursivo
 
-*   Johann Villarroel
+*   Merge Sort
+
+*   Quicksort
 
 ## Como Usar
 
-Generar archivo `data.txt` con 10M datos aleatorios
+**Automaticamente con make**
+
+Generar nuevo archivo `data.txt` con 10M datos aleatorios. *(opcional)*
 
     $ make generar
 
-Ejecutar algoritmos para 10M datos
+Ejecutar algoritmos para 100, 1000, 5000, ...10M datos y exportar output a archivo `logs.txt`
+
+    $ make run
+
+Testear algoritmos solo con N datos `n=numero`
+
+    $ make check n=2000000
+
+Testeo rapido, compila con `-Wall -Wextra -pedantic -g` para mejor debugging
+
+    $ make test
+
+**Manualmente**
+
+Compilar programa principal
 
     $ make
 
-Ejecutar algoritmos para 10M datos y exportar `logs.txt`
+Compilar sin make
 
-    $ make exportar
+    $ gcc -std=iso9899:1990 -O -foptimize-sibling-calls -D_GNU_SOURCE main.c ./algoritmos/*.c -o main -I ./algoritmos
 
-Testear algoritmos solo con 10K datos
+Ejemplo
 
-    $ make test
+    $ ./main -i <filename> -n <number> -s

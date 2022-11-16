@@ -13,9 +13,8 @@ struct Algoritmos algo[20];
 int main(void) {
     FILE *stream;
     char buf[100];
-    /* float burbuja; */
-    float shell, merge, quick;
-    int i = 0, j = 0;
+    float shell, merge, quick, burbuja;
+    int i = 0, j = 0, lineas = 4;
 
 	stream = fopen("logs.txt", "r");
 	if (stream == NULL)
@@ -23,12 +22,13 @@ int main(void) {
 		
 	while (fgets(buf, 100, stream)) {
         i++;
-        /* sscanf(buf, "Burbuja: 		 %f",&burbuja); */
+        sscanf(buf, "Burbuja: 		 %f",&burbuja);
+        if (burbuja) lineas = 5;
         sscanf(buf, "Shell: 		 %f",&shell);
         sscanf(buf, "Mergesort: 		 %f",&merge);
         sscanf(buf, "Quicksort: 		 %f",&quick);
-        if (i == 5) {
-            /* algo[j].burbuja = burbuja; */
+        if (i == lineas) {
+            algo[j].burbuja = burbuja;
             algo[j].shell = shell;
             algo[j].merge = merge;
             algo[j].quick = quick;
@@ -40,10 +40,10 @@ int main(void) {
     fclose(stream);
     stream = fopen("logs.txt", "w+");
 
-    /* fprintf(stream,"--Burbuja--\n");
+    fprintf(stream,"--Burbuja--\n");
     for (i = 0; i < 20; i++) {
         fprintf(stream,"%f\n", algo[i].burbuja);
-    } */
+    }
     fprintf(stream,"--Shell--\n");
     for (i = 0; i < 20; i++) {
         fprintf(stream,"%f\n", algo[i].shell);

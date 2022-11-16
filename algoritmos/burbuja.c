@@ -1,20 +1,19 @@
 #include "burbuja.h"
 
+typedef enum { false, true } bool;
 #define SWAP(x, y) { int SWAP = x; x = y; y = SWAP; };
 
 void burbuja(int *array, int n) {
     int i;
-    int cta = 0;
+    bool swapped;
 
-    /* Caso base */
-    if (n == 1) return;
- 
-    for (i = 0; i < n - 1; i++)
+    swapped = false;
+    for (i = 0; i < n - 1; i++) {
         if (array[i] > array[i + 1]) {
-            SWAP(array[i], array[i + 1])
-            cta++;
+            SWAP(array[i], array[i + 1]);
+            swapped = true;
         }
- 
-    if (cta == 0) return;
+    }
+    if (swapped == false) return;
     burbuja(array, n - 1);
 }
