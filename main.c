@@ -13,6 +13,7 @@ int main(int argc, char *argv[]) {
     FILE *stream;
     int linea = 0, i = 0, n;
     int *array;
+    int *array2 = array;
     bool saltar = false;
     struct timespec inicio, fin;
     double tiempo_ejec;
@@ -50,22 +51,22 @@ int main(int argc, char *argv[]) {
 
     /* Burbuja */
     clock_gettime(CLOCK_MONOTONIC, &inicio);
-    burbuja(array, n);
+    burbuja(array2, n);
     clock_gettime(CLOCK_MONOTONIC, &fin);
     tiempo_ejec = (fin.tv_sec - inicio.tv_sec) * 1e9;
     tiempo_ejec = (tiempo_ejec + (fin.tv_nsec - inicio.tv_nsec)) * 1e-9;
     printf("Burbuja: \t %f segundos \n", tiempo_ejec);
-
+    array2 = array;
     no_burbuja:
 
     /* Shell */
     clock_gettime(CLOCK_MONOTONIC, &inicio);
-    shell(array, n);
+    shell(array2, n);
     clock_gettime(CLOCK_MONOTONIC, &fin);
     tiempo_ejec = (fin.tv_sec - inicio.tv_sec) * 1e9;
     tiempo_ejec = (tiempo_ejec + (fin.tv_nsec - inicio.tv_nsec)) * 1e-9;
     printf("Shell: \t\t %f segundos \n", tiempo_ejec);
-
+    array2 = array;
      /* Print array ordenado (para testear) */
     /* for (i = 0; i < n; i++) {
         printf("%d \n", array[i]);
@@ -73,21 +74,23 @@ int main(int argc, char *argv[]) {
 
     /* Mergesort */
     clock_gettime(CLOCK_MONOTONIC, &inicio);
-    mergesort(array, n);
+    mergesort(array2, n);
     clock_gettime(CLOCK_MONOTONIC, &fin);
     tiempo_ejec = (fin.tv_sec - inicio.tv_sec) * 1e9;
     tiempo_ejec = (tiempo_ejec + (fin.tv_nsec - inicio.tv_nsec)) * 1e-9;
     printf("Mergesort: \t %f segundos \n", tiempo_ejec);
+    array2 = array;
 
     /* Quicksort */
     clock_gettime(CLOCK_MONOTONIC, &inicio);
-    quicksort(array, n);
+    quicksort(array2, n);
     clock_gettime(CLOCK_MONOTONIC, &fin);
     tiempo_ejec = (fin.tv_sec - inicio.tv_sec) * 1e9;
     tiempo_ejec = (tiempo_ejec + (fin.tv_nsec - inicio.tv_nsec)) * 1e-9;
     printf("Quicksort: \t %f segundos \n", tiempo_ejec);
 
-    free(array);
+    free(array);    
+    free(array2);
 	fclose(stream);
 	exit(EXIT_SUCCESS);
 }

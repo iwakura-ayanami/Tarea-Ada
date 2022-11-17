@@ -6,10 +6,9 @@
 #	-Wextra						
 #	-pedantic					
 #	-g							compila con información de debugeo
-CFLAGS = -std=iso9899:1990 -O -foptimize-sibling-calls -D_GNU_SOURCE
+CFLAGS = -std=iso9899:1990 -O -foptimize-sibling-calls -D_GNU_SOURCE -Wl,--stack,999999999
 CFLAGS2 = -Wall -Wextra -pedantic -g
 CC = gcc
-OLDCC = E:\opt\bin\TDM-GCC\bin.\gcc.exe
 MAKEFLAGS += --silent
 FILENAME = main
 INCLUDE = ./algoritmos
@@ -18,31 +17,28 @@ saltar-b =
 default:
 	$(CC) $(CFLAGS) $(FILENAME).c $(INCLUDE)/*.c -o $(FILENAME) -I $(INCLUDE)
 
-old:
-	$(OLDCC) $(CFLAGS) $(FILENAME).c $(INCLUDE)/*.c -o $(FILENAME) -I $(INCLUDE)
-
 run:
 	$(CC) $(CFLAGS) $(FILENAME).c $(INCLUDE)/*.c -o $(FILENAME) -I $(INCLUDE)
-	./$(FILENAME) -i data.txt -n 100 | tee logs.txt
-	./$(FILENAME) -i data.txt -n 1000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 5000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 10000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 50000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 100000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 200000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 400000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 600000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 800000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 1000000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 2000000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 3000000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 4000000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 5000000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 6000000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 7000000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 8000000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 9000000 | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 10000000 | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 100 $(saltar-b) | tee logs.txt
+	./$(FILENAME) -i data.txt -n 1000 $(saltar-b)| tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 5000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 10000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 50000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 100000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 200000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 400000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 600000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 800000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 1000000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 2000000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 3000000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 4000000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 5000000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 6000000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 7000000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 8000000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 9000000 $(saltar-b) | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 10000000 $(saltar-b) | tee -a logs.txt
 	$(CC) $(CFLAGS) exportar.c -o exportar.o
 	./exportar.o
 	rm exportar.o
@@ -53,17 +49,17 @@ generar:
 	rm generador.o
 
 check:
-	$(CC) $(CFLAGS) $(CFLAGS2) $(FILENAME).c $(INCLUDE)/*.c -o $(FILENAME) -I $(INCLUDE)
-	./$(FILENAME) -i data.txt -n $(n) -b
+	$(CC) $(CFLAGS) $(FILENAME).c $(INCLUDE)/*.c -o $(FILENAME) -I $(INCLUDE)
+	./$(FILENAME) -i data.txt -n $(n) $(saltar-b)
 
 test:
-	$(CC) $(CFLAGS) $(FILENAME).c $(INCLUDE)/*.c -o $(FILENAME) -I $(INCLUDE)
-	./$(FILENAME) -i data.txt -n 100 $(saltar-b) | tee logs.txt
-	./$(FILENAME) -i data.txt -n 1000 $(saltar-b) | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 5000 $(saltar-b) | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 10000 $(saltar-b) | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 50000 $(saltar-b) | tee -a logs.txt
-	./$(FILENAME) -i data.txt -n 100000 $(saltar-b) | tee -a logs.txt
+	$(CC) $(CFLAGS) $(CFLAGS2) $(FILENAME).c $(INCLUDE)/*.c -o $(FILENAME) -I $(INCLUDE)
+	./$(FILENAME) -i data.txt -n 100 -s | tee logs.txt
+	./$(FILENAME) -i data.txt -n 1000 -s | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 5000 -s | tee -a logs.txts
+	./$(FILENAME) -i data.txt -n 10000 -s | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 50000 -s | tee -a logs.txt
+	./$(FILENAME) -i data.txt -n 100000 -s | tee -a logs.txt
 	$(CC) $(CFLAGS) exportar.c -o exportar.o
 	./exportar.o
 	rm exportar.o
