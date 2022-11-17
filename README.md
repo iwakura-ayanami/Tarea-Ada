@@ -14,7 +14,7 @@ Implementación de algoritmos de ordenamiento en ANSI C
 
 ## Como Usar
 
-**( Automaticamente *****con make *****)**
+**Automaticamente** *con make*
 
 Generar nuevo archivo `data.txt` con 10M datos aleatorios. *(opcional)*
 
@@ -38,7 +38,7 @@ Solo compilar, recomendado para uso manual
 
 ***
 
-**( Manualmente *****sin make *****)**
+**Manualmente** *sin make*
 
 Compilar sin make
 
