@@ -56,4 +56,4 @@ $ ./main -i <filename> -n <number> -s
 
 Ejemplo
 
-    $ ./main -i data.txt -n 20000s -s
+    $ ./main -i data.txt -n 20000 -s
