@@ -50,7 +50,8 @@ Opciones
 $ ./main -i <filename> -n <number> -s
 -i <archivo>            Especifica el archivo con datos aleatorios a utilizar
 -n <numero>             Numero de datos o lineas que se ordenaran
--s                      Saltarse algoritmos lentos (burbuja), recomendado si solo se busca hacer un ordenamiento rapido
+-s                      Saltarse algoritmos lentos (burbuja), recomendado si solo se busca hacer
+                        un ordenamiento rapido
 ```
 
 Ejemplo
