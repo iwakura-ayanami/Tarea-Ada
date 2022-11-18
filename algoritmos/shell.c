@@ -1,16 +1,16 @@
 #include "shell.h"
 
- int shell(int *array, int n) {
-    int i, valor;
+void shell(int *array, int gap, int n) {
+    int i, j, valor;
+    
+    if (gap < 1) return;
 
-    if (n <= 1) return n;
-    n = shell(array, n - 1);
-    valor = array[n];
-    i = n - 1;
-    while ((i >= 0) && (array[i] > valor)) {
-        array[i + 1] = array[i];
-        i--;
+    for (i = gap; i < n; i++) {
+        valor = array[i];
+        for (j = i; j >= gap && valor < array[j - gap]; j -= gap) {
+            array[j] = array[j - gap];
+        }
+        array[j] = valor;
     }
-    array[i + 1] = valor;
-    return n + 1;
+    shell(array, gap / 2, n);
 }

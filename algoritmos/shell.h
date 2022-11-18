@@ -1,6 +1,6 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-int shell(int *array, int n);
+void shell(int *array, int gap, int n);
 
 #endif
