@@ -1,35 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
-int main() {
+int main(void) {
 
-    // declaracion del vector poner el largo 
-    static int array[10000000];
-    static int array2[10000000];
-    
-    // calculo del largo del vector
-    int lenght = sizeof array / sizeof array[0];
-    
-    // creacion del vector desordenado
-    /*printf("Arreglo sin ordenar: \n");
-    for(int x=0; x<lenght; x++ ){
-        array[x]=rand(); 
-        printf("%d.- %d\n",x,array[x]);
-    }*/
-
-    // Carga en un archivo csv 
+    /* declaracion del vector con tamaño 10M  */
     FILE *fpt;
+    int i;
+    int array[10000000];
+    int array2[10000000];
+    
+    /* calculo del largo del vector */
+    int length = sizeof array / sizeof array[0];
 
     fpt = fopen("data.txt", "w+");
     
-    for(int x=0; x<lenght; x++ ) {
-        array[x]=rand(); 
-        //printf("%d.- %d\n",x,array[x]);
-        fprintf(fpt,"%d\n", array[x] );
+    /* creacion del vector desordenado */
+    srand(time (NULL));
+    for (i = 0; i < lenght; i++) {
+        array[i] = rand(); 
+        fprintf(fpt,"%d\n", array[i]);
     }
-    printf("%d\n",array[0]);
-    printf("%d\n",array[10]);
-    printf("%d\n",array[100]);
+
     fclose(fpt);
     return 0;
 }

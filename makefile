@@ -2,13 +2,11 @@
 #	-O							minimas optimizaciones de codigo, necesario para -foptimize-sibling-calls
 #	-foptimize-sibling-calls	optimiza funciones de recursión de cola
 #	-D_GNU_SOURCE				necesario para usar extensiones de GNU
-#	-Wl							permite pasar opiciones al linker
-#	--stack						le indica al linker el tamaño especifico del stack
 #	-Wall						habilita todos mensajes de advertencia
 #	-Wextra						habilita mensajes de advertencia extras que no estan incluidos en -Wall
 #	-pedantic					habilita mensajes de advertencia releacionados con el estandar ISO
 #	-g							compila con información de debugeo
-CFLAGS = -std=iso9899:1990 -O -foptimize-sibling-calls -D_GNU_SOURCE -Wl,--stack,16777216
+CFLAGS = -std=iso9899:1990 -O -foptimize-sibling-calls -D_GNU_SOURCE
 CFLAGS2 = -Wall -Wextra -pedantic -g
 CC = gcc
 MAKEFLAGS += --silent
