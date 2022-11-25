@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
     int linea = 0, i = 0, n;
     int *array, *array2;
     bool saltar = false;
-    struct timespec inicio, fin;
+    struct timespec inicio, fin; // funcion tipo de dato timespec inicio-fin reloj cpu
     double tiempo_ejec;
 
     /* Parametros por consola */
@@ -56,6 +56,8 @@ int main(int argc, char *argv[]) {
     printf("----- N: %d ------------------\n", n);
 
     if (saltar) goto no_burbuja;
+
+	//	 array2 = copia(array, n); se copia el arreglo para poder trabajar y que no afecte el arreglo original
 
     /* Burbuja */
     array2 = copia(array, n);
